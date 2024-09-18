@@ -1,49 +1,155 @@
+/* Basic Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+/* Cài đặt lại cơ bản */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Kiểu dáng chung cho header */
+.header {
+  background-color: #fff; /* Màu nền của header */
+  padding: 15px 20px; /* Khoảng cách bên trong header */
+  border-bottom: 1px solid #ddd; /* Đường viền dưới header (tùy chọn) */
+  position: fixed; /* Ghim header cố định trên cùng của trang */
+  top: 0; /* Đặt header ở vị trí trên cùng */
+  left: 0; /* Đặt header ở vị trí bên trái */
+  width: 100%; /* Chiều rộng toàn bộ */
+  z-index: 1000; /* Đảm bảo header nằm trên các phần tử khác */
+  display: flex; /* Sử dụng Flexbox để căn chỉnh các phần tử */
+  justify-content: space-between; /* Phân phối khoảng cách giữa các phần tử */
+  align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+}
+
+.container {
+  display: flex; /* Sử dụng Flexbox để căn chỉnh các phần tử */
+  justify-content: space-between; /* Phân phối khoảng cách giữa các phần tử */
+  align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+  width: 100%; /* Chiều rộng toàn bộ */
+}
+
+.logo {
+  flex: 1; /* Cho phép logo chiếm không gian bên trái */
 }
 
 .logo img {
-    max-width: 80px; /* Adjust according to your needs */
+  max-height: 80px; /* Kích thước tối đa của logo */
 }
 
-.content {
-    display: flex;
-    gap: 2rem; /* Space between navigation links */
+.nav {
+  display: flex; /* Sử dụng Flexbox để căn chỉnh các mục điều hướng */
+  align-items: center; /* Căn giữa các mục điều hướng theo chiều dọc */
+  flex: 1; /* Cho phép nav chiếm không gian còn lại */
+  justify-content: center; /* Căn giữa các mục điều hướng */
+}
+
+.nav-list {
+  list-style: none; /* Loại bỏ dấu gạch đầu dòng */
+  display: flex; /* Sử dụng Flexbox để căn chỉnh các mục trong danh sách */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  margin: 0 15px; /* Khoảng cách giữa các mục trong danh sách */
 }
 
 .nav-link {
-    color: var(--black-color);
-    font-weight: var(--font-medium);
-    text-transform: uppercase;
-    transition: color 0.3s;
+  text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
+  color: #333; /* Màu văn bản của liên kết */
+  font-weight: 700; /* Độ đậm của văn bản */
+  font-size: 18px; /* Kích thước văn bản */
 }
 
-.nav-link:hover {
-    color: var(--first-color); /* Optional hover effect */
+.social-media {
+  display: flex; /* Sử dụng Flexbox để căn chỉnh các biểu tượng xã hội */
+  align-items: center; /* Căn giữa các biểu tượng xã hội theo chiều dọc */
+  margin-right: 35px;
 }
 
-.contact a {
-    color: var(--black-color);
-    font-size: 1.5rem;
-}
-
-.contact a:hover {
-    color: #ff9800; /* Optional hover color for the icon */
-}
 .social-icon {
-  margin-right: 10px; /* Khoảng cách giữa các biểu tượng */
+  margin-left: 20px; /* Khoảng cách giữa các biểu tượng xã hội */
+  color: #333; /* Màu của biểu tượng xã hội */
+  text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
+  font-size: 24px; /* Kích thước của biểu tượng xã hội */
 }
 
-.social-icon:last-child {
-  margin-right: 0; /* Xóa khoảng cách cho biểu tượng cuối cùng */
+.social-icon:hover {
+  color: #007bff; /* Màu khi hover lên biểu tượng xã hội */
 }
+
+/* Kiểu dáng cho biểu tượng menu ba gạch */
+.menu-toggle {
+  display: none; /* Ẩn biểu tượng menu ba gạch mặc định */
+  flex-direction: column; /* Sắp xếp các dòng trong biểu tượng */
+  cursor: pointer; /* Con trỏ chuột thay đổi khi hover */
+  background-color: #333; /* Màu nền của biểu tượng menu */
+  padding: 10px; /* Khoảng cách bên trong biểu tượng menu */
+  border-radius: 5px; /* Bo tròn góc của biểu tượng menu (tùy chọn) */
+  position: absolute; /* Đặt biểu tượng menu ở vị trí cố định */
+  right: 20px; /* Đặt cách bên phải 20px */
+  z-index: 1001; /* Đảm bảo biểu tượng menu nằm trên các phần tử khác */
+}
+
+.menu-toggle span {
+  background-color: #fff; /* Màu của các dòng trong biểu tượng */
+  height: 4px; /* Chiều cao của các dòng */
+  width: 30px; /* Chiều rộng của các dòng */
+  margin: 4px 0; /* Khoảng cách giữa các dòng */
+  border-radius: 3px; /* Bo tròn góc của các dòng */
+}
+
+/* Kiểu dáng cho thiết bị di động */
+@media (max-width: 768px) {
+  .nav {
+    display: none; /* Ẩn các liên kết điều hướng trên di động */
+    width: 100%; /* Chiều rộng toàn bộ */
+    position: absolute; /* Đặt các liên kết điều hướng ở vị trí tuyệt đối */
+    top: 60px; /* Đặt cách trên 60px (dựa vào chiều cao của header) */
+    left: 0; /* Đặt ở vị trí bên trái */
+    background-color: #fff; /* Màu nền của menu trên di động */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Đổ bóng cho menu (tùy chọn) */
+    flex-direction: column; /* Sắp xếp các mục theo chiều dọc */
+    padding: 10px; /* Khoảng cách bên trong menu */
+    z-index: 1000; /* Đảm bảo menu nằm trên các phần tử khác */
+  }
+
+  .nav-list {
+    flex-direction: column; /* Sắp xếp các mục trong danh sách theo chiều dọc */
+    width: 100%; /* Chiều rộng toàn bộ */
+  }
+
+  .nav-list li {
+    margin: 10px 0; /* Khoảng cách giữa các mục trong danh sách */
+    text-align: center; /* Căn giữa văn bản trong các mục */
+  }
+
+  .menu-toggle {
+    display: flex; /* Hiển thị biểu tượng menu trên di động */
+    position: fixed; /* Đặt biểu tượng menu ở vị trí cố định */
+    top: 15px; /* Đặt cách trên 15px */
+    right: 20px; /* Đặt cách bên phải 20px */
+    background-color: #333; /* Màu nền của biểu tượng menu */
+  }
+
+  .menu-toggle.active + .nav {
+    display: flex; /* Hiển thị menu khi biểu tượng menu được nhấp */
+  }
+}
+
+/* Các kiểu dáng bổ sung để xử lý khoảng cách nội dung */
+body {
+  margin: 0; /* Loại bỏ khoảng cách mặc định */
+  padding-top: 100px; /* Thêm khoảng cách trên cùng để tránh nội dung bị ẩn dưới header */
+}
+
+
 
 /* my project */
 /*=============== GOOGLE FONTS ===============*/
